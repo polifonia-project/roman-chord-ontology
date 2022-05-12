@@ -12,6 +12,7 @@ def analyse_roman(roman_chord: str) -> dict:
     :param roman_chord: a roman chord formatted as a string
     :return: a dictionary containing the chord features.
     """
+    roman_chord = roman_chord.replace(':', '/')
     try:
         chord_object = roman.RomanNumeral(roman_chord)
     except music21.Music21Exception:
