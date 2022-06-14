@@ -26,3 +26,5 @@ starlette==0.19.1
 typing_extensions==4.2.0
 uvicorn==0.17.6
 webcolors==1.11.1
+
+rdflib~=6.1.1

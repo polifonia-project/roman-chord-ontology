@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from api.decompose_roman import analyse_roman
+from api.generate_kg import generate_kg
 
 app = FastAPI()
 
@@ -11,4 +12,5 @@ async def root():
 
 @app.get("/roman-chord-ontology/{roman_chord}")
 async def say_hello(roman_chord: str) -> dict:
-    return analyse_roman(roman_chord)
+    decomposed_roman = analyse_roman(roman_chord)
+    return Response(generate_kg(decomposed_roman))

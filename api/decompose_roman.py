@@ -1,8 +1,9 @@
 """
 Preprocessing utility functions that are the core backend of the APIs.
 """
-import music21
-from music21 import pitch, note, chord, roman
+from music21 import note, roman, Music21Exception
+
+from api.utils import calculate_interval, separate_digits
 
 
 def analyse_roman(roman_chord: str) -> dict:
@@ -12,25 +13,33 @@ def analyse_roman(roman_chord: str) -> dict:
     :param roman_chord: a roman chord formatted as a string
     :return: a dictionary containing the chord features.
     """
+    key = None
     roman_chord = roman_chord.replace(':', '/')
+    if '_' in roman_chord:
+        roman_chord, key = roman_chord.split('_')
+    key = key if key is not None else 'C4'
     try:
-        chord_object = roman.RomanNumeral(roman_chord)
-    except music21.Music21Exception:
+        chord_object = roman.RomanNumeral(roman_chord, keyOrScale=key)
+    except Music21Exception:
         raise ValueError('The chord given is not a valid Roman Chord.')
     else:
-        root = str(chord_object.root())
-        bass = str(chord_object.bass())
+        root = note.Note(chord_object.root()).name
+        bass = calculate_interval(str(chord_object.bass()), 'C4')
         quality = chord_object.quality
         inversion = chord_object.inversion()
-        degree = chord_object.scaleDegree
+        plain_roman = chord_object.romanNumeralAlone
+        degrees = [calculate_interval(str(p), 'C4') for p in chord_object.pitches]
+        missing = chord_object.omittedSteps
         return {'chord': roman_chord,
                 'quality': quality,
                 'inversion': inversion,
-                'degree': degree,
+                'plain_roman': plain_roman,
                 'root': root,
-                'bass': bass}
+                'bass': separate_digits(bass),
+                'degrees': [separate_digits(degree) for degree in degrees],
+                'missing': [separate_digits(str(m)) for m in missing]}
 
 
 if __name__ == '__main__':
-    abc = analyse_roman('VII64/ii')
+    abc = analyse_roman('VII64[no3]_C#')
     print(abc)
