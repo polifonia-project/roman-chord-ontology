@@ -42,5 +42,5 @@ def analyse_roman(roman_chord: str) -> dict:
 
 
 if __name__ == '__main__':
-    abc = analyse_roman('VII64[no3]_C#')
+    abc = analyse_roman('ciao')
     print(abc)
