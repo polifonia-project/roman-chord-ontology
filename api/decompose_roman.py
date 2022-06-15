@@ -3,7 +3,7 @@ Preprocessing utility functions that are the core backend of the APIs.
 """
 from music21 import note, roman, Music21Exception
 
-from api.utils import calculate_interval, separate_digits
+from api.utils import calculate_interval, separate_alterations
 
 
 def analyse_roman(roman_chord: str) -> dict:
@@ -24,6 +24,7 @@ def analyse_roman(roman_chord: str) -> dict:
         raise ValueError('The chord given is not a valid Roman Chord.')
     else:
         root = note.Note(chord_object.root()).name
+        root = separate_alterations(root)
         bass = calculate_interval(str(chord_object.bass()), 'C4')
         quality = chord_object.quality
         inversion = chord_object.inversion()
@@ -35,9 +36,9 @@ def analyse_roman(roman_chord: str) -> dict:
                 'inversion': inversion,
                 'plain_roman': plain_roman,
                 'root': root,
-                'bass': separate_digits(bass),
-                'degrees': [separate_digits(degree) for degree in degrees],
-                'missing': [separate_digits(str(m)) for m in missing]}
+                'bass': separate_alterations(bass),
+                'degrees': [separate_alterations(degree) for degree in degrees],
+                'missing': [separate_alterations(str(m)) for m in missing]}
 
 
 if __name__ == '__main__':

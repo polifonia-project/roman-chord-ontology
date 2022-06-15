@@ -4,6 +4,16 @@
 
 from music21 import note, interval
 
+ALTERATION_MAP = {
+    'b#': None,
+    '#b': None,
+    '': None,
+    '#': 'sharp',
+    '##': 'doublesharp',
+    'b': 'flat',
+    'bb': 'doubleflat',
+}
+
 
 def calculate_interval(note_1: str, note_2: str, simple: bool = True) -> str:
     """
@@ -54,22 +64,25 @@ def convert_intervals(m21_interval: str) -> str:
     return m21_interval.translate(m21_interval.maketrans(substitutions))
 
 
-def separate_digits(scale_degree: str) -> tuple:
+def separate_alterations(note: str) -> tuple:
     """
 
-    :param scale_degree:
+    :param note:
     :return:
     """
-    digits = ''
+
+    cleaned_note = ''
     alterations = ''
-    for character in scale_degree:
-        if character.isdigit():
-            digits += character
-        else:
+    for character in note:
+        if character in ['b', '#']:
             alterations += character
-    return alterations, digits
+        else:
+            cleaned_note += character
+    if alterations == 'b#' or alterations == '#b':
+        alterations = ''
+    return ALTERATION_MAP[alterations], cleaned_note
 
 
 if __name__ == '__main__':
-    test = separate_digits('##4')
+    test = separate_alterations('bbB')
     print(test)
