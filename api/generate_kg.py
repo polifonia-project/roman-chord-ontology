@@ -47,8 +47,6 @@ def generate_kg(decomposed_roman: ChordComponents):
         inversion = Literal(decomposed_roman.inversion)
         basic_function_name = Literal(decomposed_roman.plain_roman)
         root_note = decomposed_roman.root
-        root_note_uri = URIRef(
-            f'https://purl.org/ontology/chord/note/{root_note.replace("#", "s")}')
         bass_alteration, bass_degree = decomposed_roman.bass
         bass_degree = Literal(bass_degree)
 
@@ -56,11 +54,14 @@ def generate_kg(decomposed_roman: ChordComponents):
         g.add((roman_chord, RDF.type, ROMAN.Chord))
         g.add((roman_chord, ROMAN.hasQuality, quality))
         g.add((roman_chord, ROMAN.inversionType, inversion))
-        root_node = BNode()
-        g.add((roman_chord, ROMAN.hasRoot, root_node))
-        g.add((root_node, RDF.type, ROMAN.Note))
-        g.add((root_node, RDFS.label, Literal(root_note)))
-        g.add((root_node, OWL.sameAs, root_note_uri))
+        if root_note is not None:
+            root_node = BNode()
+            root_note_uri = URIRef(
+                f'https://purl.org/ontology/chord/note/{root_note.replace("#", "s")}')
+            g.add((roman_chord, ROMAN.hasRoot, root_node))
+            g.add((root_node, RDF.type, ROMAN.Note))
+            g.add((root_node, RDFS.label, Literal(root_note)))
+            g.add((root_node, OWL.sameAs, root_note_uri))
         # basic function
         basic_node = BNode()
         g.add((roman_chord, ROMAN.hasBasicFunction, basic_node))

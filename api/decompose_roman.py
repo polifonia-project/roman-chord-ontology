@@ -13,18 +13,16 @@ def analyse_roman(roman_chord: str) -> dict:
     :param roman_chord: a roman chord formatted as a string
     :return: a dictionary containing the chord features.
     """
-    key = None
+
     roman_chord = roman_chord.replace(':', '/')
-    if '_' in roman_chord:
-        roman_chord, key = roman_chord.split('_')
+    roman_chord, key = roman_chord.split('_') if '_' in roman_chord else [roman_chord, None]
     key = key if key is not None else 'C4'
     try:
         chord_object = roman.RomanNumeral(roman_chord, keyOrScale=key)
     except Music21Exception:
         raise ValueError('The chord given is not a valid Roman Chord.')
     else:
-        root = note.Note(chord_object.root()).name
-        root = root
+        root = note.Note(chord_object.root()).name if key is not None else None
         bass = calculate_interval(str(chord_object.bass()), 'C4')
         quality = chord_object.quality
         inversion = chord_object.inversion()
