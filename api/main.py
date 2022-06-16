@@ -6,7 +6,6 @@ from fastapi import FastAPI, Response, HTTPException, Query
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
-from rdflib import Graph
 
 from api.decompose_roman import analyse_roman
 from api.generate_kg import generate_kg
@@ -27,7 +26,7 @@ async def root():
 @app.get("/{roman_chord}", response_model=DecomposedChordModel)
 async def root(roman_chord: str = Query(default=...,
                                         title="Roman Chord",
-                                        description="A valid Music21 roman-numeral Chord")):
+                                        description="A valid Music21 roman-numeral Chord")) -> JSONResponse:
     """
     Base API root + a roman chord
     :param roman_chord: str
@@ -54,8 +53,7 @@ async def root(roman_chord: str = Query(default=...,
 @app.get("/roman-chord-ontology/{roman_chord}")
 async def return_kg(roman_chord: str = Query(default=...,
                                              title='Roman Chord',
-                                             description='A valid Music21 roman-numeral Chord')
-                    ) -> Graph:
+                                             description='A valid Music21 roman-numeral Chord')) -> Response:
     """
     Base API root + roman-chord-ontology + a roman chord
     :param roman_chord: str
