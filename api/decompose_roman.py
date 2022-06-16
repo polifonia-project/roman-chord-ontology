@@ -24,7 +24,7 @@ def analyse_roman(roman_chord: str) -> dict:
         raise ValueError('The chord given is not a valid Roman Chord.')
     else:
         root = note.Note(chord_object.root()).name
-        root = separate_alterations(root)
+        root = root
         bass = calculate_interval(str(chord_object.bass()), 'C4')
         quality = chord_object.quality
         inversion = chord_object.inversion()
