@@ -1,5 +1,5 @@
 """
-
+Utility function for the roman-chord-ontology module
 """
 
 from music21 import note, interval
@@ -19,18 +19,14 @@ def calculate_interval(note_1: str, note_2: str, simple: bool = True) -> str:
     """
     Utility function that given two music21 notes returns the interval calculated
     between the two.
-    Parameters
-    ----------
-    note_1 : music21.note.Note
+    :param: note_1 : music21.note.Note
         The start note from which the interval has to be calculated.
-    note_2 : music21.note.Note
+    :param: note_2 : music21.note.Note
         The end note to which the interval has to be calculated.
-    simple : bool
+    :param: simple : bool
         To mode in which to return the function. If true the interval is printed
         in the music21 "simpleName" mode, in the "name" mode if False.
-    Returns
-    -------
-    interval : str
+    :return: interval : str
         An interval as convention in the Harte notation (i.e. b for flat and #
         for sharp).
     """
@@ -45,13 +41,9 @@ def calculate_interval(note_1: str, note_2: str, simple: bool = True) -> str:
 def convert_intervals(m21_interval: str) -> str:
     """
     Utility function that converts intervals from the music21 format to the Harte one.
-    Parameters
-    ----------
-    m21_interval : str
+    :param: m21_interval : str
         A string containing an interval as expressed by the music21 notation (e.g. 'P4').
-    Returns
-    -------
-    harte:interval : str
+    :return: harte:interval : str
         A string containing an interval as expressed by the Harte notation (e.g. 'b2').
     """
     substitutions = {
@@ -64,11 +56,17 @@ def convert_intervals(m21_interval: str) -> str:
     return m21_interval.translate(m21_interval.maketrans(substitutions))
 
 
-def separate_alterations(note: str) -> tuple:
+def separate_alterations(note: str) -> tuple[str | None, str]:
     """
-
-    :param note:
-    :return:
+    Utility function for separating alterations (b and #) in a string
+    :param note: str
+        A note in a string format
+    :return: tuple
+        A tuple containing two elements:
+            - the first element is the
+            alteration (str) if any, None, otherwise None;
+            - the second element is the rest of the input
+            string (str).
     """
 
     cleaned_note = ''

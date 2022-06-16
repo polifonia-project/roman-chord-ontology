@@ -1,4 +1,7 @@
 """
+Scripts for converting a Roman Numeral chord into RDF-based serialisation
+as described in:
+        https://github.com/polifonia-project/roman-chord-ontology
 
 """
 from rdflib import Graph, URIRef, Literal, BNode, Namespace, exceptions
@@ -9,10 +12,29 @@ from api.validation import ChordComponents
 
 def generate_kg(decomposed_roman: ChordComponents):
     """
-
-    :return:
+    Main function for generating a Knowledge Graph starting from a validated
+    object (thought Pydantic Validator) which contains all the constituting
+    elements of a Roman Numeral Chord.
+    :param decomposed_roman : ChordComponent
+        The input of this function is the Pydantic validated version of the
+        output coming from the decompose_roman.analyse_roman function
+        Example:
+        {
+            'chord': 'VII64[no3]',
+            'quality': 'other',
+            'inversion': 2,
+            'plain_roman': 'VII',
+            'root': 'Bb',
+            'bass': ('doublesharp', '4'),
+            'degrees': [('doublesharp', '4'), ('sharp', '7')],
+            'missing': [(None, '3')]
+       }
+    :return: rdflib.serialize
+        A serialized Knowledge Graph containing the constituting elements of
+        the chord, modelled according to the roman-chord-ontology.
+        More information about the ontological model at:
+        https://github.com/polifonia-project/roman-chord-ontology
     """
-
     try:
         ROMAN = Namespace('http://w3id.org/polifonia/ontology/roman-chord/')
         CHORD = Namespace('http://purl.org/ontology/chord/')
@@ -88,5 +110,5 @@ if __name__ == '__main__':
     dummy_chord = {'chord': 'VII64[no3]', 'quality': 'other', 'inversion': 2, 'plain_roman': 'VII',
                    'root': 'Bb', 'bass': ('doublesharp', '4'),
                    'degrees': [('doublesharp', '4'), ('sharp', '7')], 'missing': [(None, '3')]}
-    test_kg = generate_kg(dummy_chord)
+    test_kg = generate_kg(ChordComponents(dummy_chord))
     print(test_kg)
