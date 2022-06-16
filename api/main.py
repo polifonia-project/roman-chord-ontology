@@ -42,7 +42,7 @@ async def root(roman_chord: str = Query(default=...,
     """
     try:
         decomposed_roman = analyse_roman(roman_chord)
-        decomposed_roman_validated = jsonable_encoder(DecomposedChordModel(roman_chord=decomposed_roman))
+        decomposed_roman_validated = jsonable_encoder({roman_chord: DecomposedChordModel(roman_chord=decomposed_roman)})
     except ValidationError as validation_error:
         raise HTTPException(status_code=404, detail=f'Unexpected decomposition chord output: {validation_error}')
     except ValueError:
