@@ -1,1 +1,655 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://w3id.org/polifonia/ontology/roman-chord/"
+     xml:base="http://w3id.org/polifonia/ontology/roman-chord/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:chord="http://purl.org/ontology/chord/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:roman-res="http://w3id.org/polifonia/resource/roman-chord/">
+    <owl:Ontology rdf:about="http://w3id.org/polifonia/ontology/roman-chord/">
+        <owl:versionIRI rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/0.1/"/>
+        <owl:imports rdf:resource="http://purl.org/ontology/chord/"/>
+        <dc:creator xml:lang="en">Andrea Poltronieri</dc:creator>
+        <dc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <rdfs:comment xml:lang="en">Ontology for modelling a chord annotated using the Roman Numeral convention.</rdfs:comment>
+        <rdfs:label xml:lang="en">Roman Chord Ontology</rdfs:label>
+        <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/containsInterval -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/containsInterval">
+        <owl:inverseOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasBasicFunction"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasQuality"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasRootNote"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">It relates a chord to an Interval, which is a constituting interval of the chord.</rdfs:comment>
+        <rdfs:label xml:lang="en">Contains Interval</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/hasBasicFunction -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/hasBasicFunction">
+        <owl:inverseOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/BasicFunction"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasQuality"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasRootNote"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">It relates a Chord to its Basic Function, i.e. the main function the chord has all the inversion and attributes considered.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has Basic Function</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/hasBass -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/hasBass">
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/containsInterval"/>
+        <owl:inverseOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBassOf"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:comment xml:lang="en">It relates a chord to an Interval, which has the lower pitch compared to all the other chord&apos;s intervals.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has Bass</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/hasQuality">
+        <owl:inverseOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasRootNote"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">It relates a Chord to its Quality, i.e. the chord&apos;s main characterisation (e.g. &quot;major&quot; or &quot;minor&quot;).</rdfs:comment>
+        <rdfs:label xml:lang="en">Has Quality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/hasRootNote -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/hasRootNote">
+        <owl:inverseOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">It links a Chord to a Note, which is the Root note of the chord, i.e. charachterises functionally such chord.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has Root Note</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf">
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/BasicFunction"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">Inverse of hasBasicFunction. It links a chord&apos;s Basic Function to the chord itself.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is Basic Function Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/isBassOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/isBassOf">
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:comment xml:lang="en">Inverse of hasBass. It links an interval to the chord the interval belongs to and in which the interval is the lower one.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is Bass Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf">
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">Inverse of containsInterval. It links an interval to the chord the interval belongs to.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is Interval Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf">
+        <owl:inverseOf rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">Inverse of hasMissingInterval. It links an Interval to the chord the interval is the missing interval of.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is Missing Interval Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/isQualityOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf">
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">Inverse of hasQuality. It links the Quality of a chord to the chord itself.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is Quality Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf">
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+        <rdfs:comment xml:lang="en">Inverse of hasRoot. It links a Note to the Chord the Note plays the root function of.</rdfs:comment>
+        <rdfs:label xml:lang="en">Is Root Note Of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/missingInterval -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/missingInterval">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:comment xml:lang="en">It relates a chord to an Interval, which is an interval missing and that makes the chord deviate from the standard form of the chord.</rdfs:comment>
+        <rdfs:label xml:lang="en">Missing Interval</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/chord/degree -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/chord/degree">
+        <owl:equivalentProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasDegree"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasModifier"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/inversionType"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/chord/modifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/chord/modifier">
+        <owl:equivalentProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasModifier"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasDegree"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/inversionType"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/hasDegree -->
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/hasDegree">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasModifier"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/inversionType"/>
+        <rdfs:comment xml:lang="en">The degree that carachterises an interval, i.e. the number of semitones that intercourse between notes one another.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has Degree</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/hasModifier -->
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/hasModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <owl:propertyDisjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/inversionType"/>
+        <rdfs:comment xml:lang="en">The modifier (i.e. alteration) to a degree. Typical examples of modifier are &quot;sharp&quot; and &quot;flat&quot;, and their combinations.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has Modifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/inversionType -->
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/polifonia/ontology/roman-chord/inversionType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">The type of inversion of a chord. The inversionType must be an integer and can have a cardinality equal to the number of notes the chord is composed of minus one.</rdfs:comment>
+        <rdfs:label xml:lang="en">Inversion Type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/chord/Note -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/chord/Note">
+        <owl:equivalentClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/chord/ScaleInterval -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/chord/ScaleInterval">
+        <owl:equivalentClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/BasicFunction -->
+
+    <owl:Class rdf:about="http://w3id.org/polifonia/ontology/roman-chord/BasicFunction">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBasicFunctionOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:comment xml:lang="en">The basic function of a Roman numeral Chord, i.e. the function that the chord has withing the harmonic sequence it belongs to.</rdfs:comment>
+        <rdfs:label xml:lang="en">Basic Function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/Chord -->
+
+    <owl:Class rdf:about="http://w3id.org/polifonia/ontology/roman-chord/Chord">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/containsInterval"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasBasicFunction"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/BasicFunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasBass"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasQuality"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasRootNote"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/missingInterval"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/containsInterval"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasBasicFunction"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/BasicFunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasBass"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasQuality"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasRootNote"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/inversionType"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/inversionType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Interval"/>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:comment xml:lang="en">A musical chord annotated according to the Roman Numeral notation. More specifically, a Roman Numeral Chord that is readable by the music21 library.</rdfs:comment>
+        <rdfs:label xml:lang="en">Roman Chord</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/Interval -->
+
+    <owl:Class rdf:about="http://w3id.org/polifonia/ontology/roman-chord/Interval">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBassOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isBassOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isIntervalOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isMissingIntervalOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasDegree"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasModifier"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/hasDegree"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Note"/>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:comment xml:lang="en">A music interval, i.e. the distance in semitones that intercours between two notes. The notes here are two constituing notes of the chord.</rdfs:comment>
+        <rdfs:label xml:lang="en">Interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/Note -->
+
+    <owl:Class rdf:about="http://w3id.org/polifonia/ontology/roman-chord/Note">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isRootNoteOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:comment xml:lang="en">A music note expressed in the International notation (e.g. &quot;E&quot;).</rdfs:comment>
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/polifonia/ontology/roman-chord/Quality -->
+
+    <owl:Class rdf:about="http://w3id.org/polifonia/ontology/roman-chord/Quality">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/isQualityOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Chord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The quality of a chord as documented in the music21 library. All the qualities not clearly defined are expressed as &quot;other&quot;.</rdfs:comment>
+        <rdfs:label xml:lang="en">Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/polifonia/resource/roman-chord/augmented -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/polifonia/resource/roman-chord/augmented">
+        <rdf:type rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:label xml:lang="en">Augmented</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/polifonia/resource/roman-chord/diminished -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/polifonia/resource/roman-chord/diminished">
+        <rdf:type rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:label xml:lang="en">Diminished</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/polifonia/resource/roman-chord/half-diminished -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/polifonia/resource/roman-chord/half-diminished">
+        <rdf:type rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:label xml:lang="en">Half Diminished</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/polifonia/resource/roman-chord/major -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/polifonia/resource/roman-chord/major">
+        <rdf:type rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:label xml:lang="en">Major</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/polifonia/resource/roman-chord/minor -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/polifonia/resource/roman-chord/minor">
+        <rdf:type rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:label xml:lang="en">Minor</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/polifonia/resource/roman-chord/other -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/polifonia/resource/roman-chord/other">
+        <rdf:type rdf:resource="http://w3id.org/polifonia/ontology/roman-chord/Quality"/>
+        <rdfs:label xml:lang="en">Other Quality</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
