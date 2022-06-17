@@ -1,10 +1,10 @@
 # Roman Chord Ontology
 Repository for the Roman Chord ontology and its APIs.
 
-This repository contains mainly two types of resources:
+This repository contains two types of resources:
 1. [roman-chord-ontology](#the-roman-chord-ontology), an ontology for representing annotated agreements in Roman Numeral format
 2. [APIs](#the-roman-chord-apis) to automatically generate a Knowledge Graph built on top of the roman-chord-ontology model, 
-given as input an agreement in Roman Numeral format.
+given as input a chord in Roman Numeral notation.
 
 ## The Roman Chord Ontology
 
