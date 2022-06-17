@@ -2,7 +2,7 @@
 Repository for the Roman Chord ontology and its APIs.
 
 This repository contains two types of resources:
-1. [roman-chord-ontology](#the-roman-chord-ontology), an ontology for representing annotated agreements in Roman Numeral format
+1. [roman-chord-ontology](#the-roman-chord-ontology), an ontology for representing annotated chords in Roman Numeral format
 2. [APIs](#the-roman-chord-apis) to automatically generate a Knowledge Graph built on top of the roman-chord-ontology model, 
 given as input a chord in Roman Numeral notation.
 
@@ -23,11 +23,11 @@ The `roman-chord-ontology` has the following structure:
 
 ## The Roman Chord APIs
 
-To enable an immediate conversion between the agreement and a Knowledge Graph based on xxx, APIs were developed. 
+To enable an immediate conversion between chords and a Knowledge Graph based on the `roman-chord-ontology` model, APIs were implemented. 
 
 The APIs were developed using the [FastAPI](https://fastapi.tiangolo.com/) framework, 
 using the [Pydantic](https://pydantic-docs.helpmanual.io/) library to validate input and output of all functions 
-called by the APIs.
+that the APIs define.
 
 The APIs are currently deployed on Heroku and are accessible at this URL: 
 
@@ -35,7 +35,7 @@ The APIs are currently deployed on Heroku and are accessible at this URL:
 https://roman-chord-api.herokuapp.com/
 ```
 
-Redirect from the `roman-chord-ontology` URI has also been implemented, so the APIs of the URI can be accessed:
+Redirect from the `roman-chord-ontology` URI has also been implemented, so that the APIs can be accessed from the ontology's URI:
 
 ```
 https://w3id.org/polifonia/resource/roman-chord/
@@ -48,14 +48,13 @@ https://roman-chord-api.herokuapp.com/docs/
 
 ### How to query the APIs
 
-First off, it is necessary to slightly modify the syntax of the Roman Chord in order for it to be queried by the API. 
+First off, it is necessary to slightly modify the syntax of the Roman Numeral Chord in order for it to be queried by the API. 
 This is due to character limitations within the URL.
 
 Indeed, the chord must not contain slash (`/`), but instead colons (`:`). 
-For example, the chord `VI/ii63[no3]` would become `VI:ii63[no3]`.
+For example, the chord `VI/ii63[no3]` will become `VI:ii63[no3]`.
 
-It is also possible to include the chord's key within the query, to get a chord analysis for that key complete with 
-root notes. 
+It is also possible to include the chord's key within the query, to get a chord analysis for the chord considering its context (i.e. defining also its root note). 
 To do this you need to insert `_key` (underscore + key) after the chord.
 The key must be expressed as a capital letter followed by any modifiers (i.e. `#` or `b`), for instance `C#` for the 
 `C sharp` key.
@@ -124,7 +123,7 @@ You can query the API in two ways that will give two different types of output, 
 # License
 MIT License
 
-Copyright (c) 2022 Andrea Poltronieri
+Copyright (c) 2022 Andrea Poltronieri, Jacopo de Berardinis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
