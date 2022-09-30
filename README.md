@@ -134,6 +134,12 @@ You can then launch the container via the command:
 docker run -p 80:80 roman-api:0.4
 ```
 
+You can then access the APIs in your browser at the address:
+
+```
+0.0.0.0:80
+```
+
 # License
 MIT License
 
