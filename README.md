@@ -120,6 +120,26 @@ You can query the API in two ways that will give two different types of output, 
                 owl:sameAs <https://purl.org/ontology/scale_interval/3> ] .
     ```
 
+### Running APIs on Docker
+
+It is possible to launch the API using docker. To do this, simply clone the Docker image from Docker Hub via:
+
+```commandline
+docker pull andreamust/roman-api:0.4
+```
+
+You can then launch the container via the command:
+
+```commandline
+docker run -p 80:80 roman-api:0.4
+```
+
+You can then access the APIs in your browser at the address:
+
+```
+0.0.0.0:80
+```
+
 # License
 MIT License
 
